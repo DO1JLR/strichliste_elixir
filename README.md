@@ -18,6 +18,11 @@ apt install elixir erlang-nox
 also install phoenix, nodejs and all the stuff:
 https://hexdocs.pm/phoenix/installation.html#phoenix
 
+start dockerized postgres
+docker run --network host --name postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+connect with psql:
+docker run -it --rm --network host postgres psql -h localhost -U postgres
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
