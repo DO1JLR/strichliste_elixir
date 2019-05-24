@@ -6,17 +6,24 @@ strichliste webversion re-implementation in elixir with phoenix lieve view
  Run Elixir with docker
 ------------------------
 ```bash
-docker run -ti -e APP_UID=1000 -e APP_GID=1000 -v /home/alexander/git/strichliste_elixir:/development -p 4000:4000 -w /development elixir:latest /bin/bash
+docker run --rm -ti --network host -e APP_UID=1000 -e APP_GID=1000 -v /home/alexander/git/strichliste_elixir:/development -w /development elixir:latest /bin/bash
 ```
 
  Install elixir with your package manager
 -------------------------
+***Protipp:*** *Use a rapberry Pi*
+
 ```bash
 apt install elixir erlang-nox
 ```
 
 also install phoenix, nodejs and all the stuff:
 https://hexdocs.pm/phoenix/installation.html#phoenix
+```bash
+apt install nodejs
+apt install postgresql libpq-dev postgresql-client postgresql-client-common
+mix archive.install hex phx_new 1.4.6
+```
 
 start dockerized postgres
 docker run --network host --name postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
