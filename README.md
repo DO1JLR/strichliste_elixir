@@ -13,6 +13,11 @@ docker run --rm -ti --network host \
  -w /development
  phoenix:latest /bin/bash
 ```
+start dockerized postgres
+docker run --network host --name postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+connect with psql:
+docker run -it --rm --network host postgres psql -h localhost -U postgres
+
 
  Install the packages manually
 -------------------------
@@ -29,18 +34,19 @@ sudo apt-get install esl-erlang
 mix archive.install hex phx_new 1.4.6
 ```
 
-start dockerized postgres
-docker run --network host --name postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
-connect with psql:
-docker run -it --rm --network host postgres psql -h localhost -U postgres
+ Start phoenix
+-----------------------
 
 To start your Phoenix server:
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
+  * Install dependencies with ``mix deps.get``
+  * Create and migrate your database with ``mix ecto.setup``
+  * Install Node.js dependencies with ``cd assets && npm install``
+  * Start Phoenix endpoint with ``mix phx.server``
 
+
+ Developing
+---------------
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
