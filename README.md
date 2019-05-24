@@ -15,4 +15,5 @@ docker run -ti -e APP_UID=1000 -e APP_GID=1000 -v /home/alexander/git/strichlist
 apt install elixir erlang-nox
 ```
 
-
+also install phoenix, nodejs and all the stuff:
+https://hexdocs.pm/phoenix/installation.html#phoenix
