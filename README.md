@@ -5,8 +5,13 @@ strichliste webversion re-implementation in elixir with phoenix lieve view
 
  Run Elixir with docker
 ------------------------
+docker build . --tag phoenix
 ```bash
-docker run --rm -ti --network host -e APP_UID=1000 -e APP_GID=1000 -v /home/alexander/git/strichliste_elixir:/development -w /development elixir:latest /bin/bash
+docker run --rm -ti --network host \
+ -e APP_UID=1000 -e APP_GID=1000   \
+ -v `pwd`:/development \
+ -w /development
+ phoenix:latest /bin/bash
 ```
 
  Install elixir with your package manager
